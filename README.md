@@ -230,3 +230,7 @@ This project demonstrates the setup of a dynamic website infrastructure on AWS u
 
 <img width="1268" alt="Screen Shot 2023-11-04 at 3 34 21 AM" src="https://github.com/chidex-henry/docker-projects/assets/77998377/960addf1-82db-4c6f-a601-c98f8c3e1c21">
 
+
+<img width="1047" alt="Screen Shot 2024-02-24 at 8 21 09 AM" src="https://github.com/chidex-henry/static-dynamic-web-docker-projects/assets/77998377/827e2859-0852-46bd-b250-ab0bc1d3de3c">
+
+
