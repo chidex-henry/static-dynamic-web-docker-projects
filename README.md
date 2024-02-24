@@ -153,41 +153,41 @@ This project sets up a dynamic website infrastructure on Amazon Web Services (AW
 3. **Built and Pushed Docker Image to ECR:**
    - Built and pushed the Docker image from an AWS EC2 Instance to AWS ECR using the following steps:
 
-    - **Pre-requisites:**
-            Created a personal token; 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 
+     **Pre-requisites:**
+           - Created a personal token; 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 
 
-    - **Created a new repository and added a `Dockerfile` and ‘AppServiceProvider.php file’. Cloned the Repository**
-            git clone https://<personal access token>@github.com/<github-user-name>/<repository-name>.git
+     **Created a new repository and added a `Dockerfile` and ‘AppServiceProvider.php file’. Cloned the Repository**
+           - git clone https://<personal access token>@github.com/<github-user-name>/<repository-name>.git
 
-    -  **AWS configuration:**
-	      Created an IAM Role: Use the “AmazonEC2ContainerRegistryFullAccess” policy
+     **AWS configuration:**
+	    - Created an IAM Role: Use the “AmazonEC2ContainerRegistryFullAccess” policy
 	      Launched an Amazon EC2 instance in the private subnet and an EC2 instance connect endpoint.
               This EC2 Instance connect endpoint was used to SSH into theAmazon EC2 instance in the private subnet
 	      SSH into the EC2 instance:  aws ec2-instance-connect ssh --instance-id i-0739dee0c2d494619
 
-	 - **Installation of Docker on EC2: Installed Docker on the EC2 instance** 
-   	      sudo amazon-linux-extras install docker
-   	      sudo service docker start
-   	      sudo usermod -a -G docker ec2-user
+     **Installation of Docker on EC2: Installed Docker on the EC2 instance** 
+   	    - sudo amazon-linux-extras install docker
+   	    - sudo service docker start
+   	    - sudo usermod -a -G docker ec2-user
 
-	 -  **Installed Git:**
-	         sudo yum install git -y
+      **Installed Git:**
+	    - sudo yum install git -y
 
-	 -  **Cloned the repository on the EC2 Instance:**
-	         git clone https://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@github.com/chidex-henry/docker-projects.git
+      **Cloned the repository on the EC2 Instance:**
+	    - git clone https://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@github.com/chidex-henry/docker-projects.git
 
-         -  **Built the Docker Image**
+       **Built the Docker Image**
   
-       ![image](https://github.com/chidex-henry/docker-projects/assets/77998377/00e8d2b9-d291-4be1-80d7-4da4f451f279)
-   
+     ![image](https://github.com/chidex-henry/docker-projects/assets/77998377/8d764f0d-8511-4d98-b783-0b78c3dd4d0d)
 
-         -  **Created an AWS ECR repository:** 
-	         aws ecr create-repository --repository-name <repository-name> --region <region>
 
-	 -   **Tagged and Pushed Docker image to ECR:**
-	         docker tag <image-tag> <repository-uri>
-    		 aws ecr get-login-password | docker login --username AWS --password-stdin <aws_account_id>.dkr.ecr.<region>.amazonaws.com
-           	 docker push <repository-uri>
+     	**Created an AWS ECR repository:** 
+	       - aws ecr create-repository --repository-name <repository-name> --region <region>
+
+	 **Tagged and Pushed Docker image to ECR:**
+	       - docker tag <image-tag> <repository-uri>
+    	       - aws ecr get-login-password | docker login --username AWS --password-stdin <aws_account_id>.dkr.ecr.<region>.amazonaws.com
+               - docker push <repository-uri>
 
 4. **Database Migration with Flyway:**
    - Migrated SQL script into RDS database with Flyway. Installed and extracted Flyway on the EC2 Instance, downloaded the SQL script from S3, and migrated the SQL into RDS.
